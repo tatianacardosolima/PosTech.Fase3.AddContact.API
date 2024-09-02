@@ -1,18 +1,21 @@
-﻿using PosTech.Fase3.AddContact.Domain.Interfaces;
+﻿using MassTransit;
+using PosTech.Fase3.AddContact.Domain.Interfaces;
 using PosTech.Fase3.AddContact.Domain.Requests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PosTech.Fase3.AddContact.Infrastructure.Publications
 {
     public class SaveContactPublisher : ISaveContactPublisher
     {
-        public Task<bool> PublishAsync(NewContactRequest request)
+        private readonly IBus _bus;
+
+        public SaveContactPublisher(IBus bus)
         {
-            throw new NotImplementedException();
+            _bus = bus;
+        }
+        public async Task<bool> PublishAsync(NewContactRequest request)
+        {
+            await _bus.Publish(request);
+            return true;
         }
     }
 }

@@ -1,10 +1,17 @@
+using MassTransit;
+using MySql.Data.MySqlClient;
 using Polly;
 using Polly.Extensions.Http;
 using PosTech.Fase3.AddContact.API.Logging;
 using PosTech.Fase3.AddContact.API.PolicyHandler;
+using PosTech.Fase3.AddContact.Application.UseCases;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
 using PosTech.Fase3.AddContact.Infrastructure.Clients;
+using PosTech.Fase3.AddContact.Infrastructure.Publications;
+using PosTech.Fase3.AddContact.Infrastructure.Repositories;
 using Serilog;
+using System.Data;
+using System.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -22,6 +29,27 @@ builder.Services.AddHttpClient<ICodeAreaClient, CodeAreaClient>(c =>
                 .AddHttpMessageHandler<LoggingDelegatingHandler>()
                 .AddPolicyHandler(PolicyHandler.GetCircuitBreakerPolicy())
                 .AddPolicyHandler(PolicyHandler.GetRetryPolicy());
+
+var connectionString = builder.Configuration.GetValue<string>("ConnectionStrings:Mysql");
+builder.Services.AddScoped<IDbConnection, MySqlConnection>((connection) => new MySqlConnection(connectionString));
+
+// Configure MassTransit with RabbitMQ
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host("localhost", "/", h =>
+        {
+            h.Username("guest");
+            h.Password("guest");
+        });       
+    });
+});
+
+builder.Services.AddTransient<LoggingDelegatingHandler>();
+builder.Services.AddTransient<IProtocolRepository, ProtocolRepository>();
+builder.Services.AddTransient<ISaveContactPublisher, SaveContactPublisher>();
+builder.Services.AddTransient<ISaveContactUseCase, SaveContactUseCase>();
 
 var app = builder.Build();
 

@@ -20,7 +20,9 @@ namespace PosTech.Fase3.AddContact.Infrastructure.Clients
         public async Task<RegionDto?> GetRegionByCodeAsync(int code)
         {
             var response = await _client.GetAsync($"areacodes/{code}");
-            return await JsonSerializer.DeserializeAsync<RegionDto>(await response.Content.ReadAsStreamAsync());
+            var json = await response.Content.ReadAsStreamAsync();
+            return await JsonSerializer.DeserializeAsync<RegionDto>(json);
+
         }
     }
 }

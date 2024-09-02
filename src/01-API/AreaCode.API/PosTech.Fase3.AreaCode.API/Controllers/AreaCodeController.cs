@@ -26,7 +26,7 @@ namespace PosTech.Fase3.AreaCode.API.Controllers
         public RegionStateCodeModel? Get([FromRoute] int code)
         {
             var regions = RegionHelper.Get();
-            return regions.Where(x => x.States.Any(y => y.Codes.Contains(new CodeModel(code))))
+            var regionstatecode = regions.Where(x => x.States.Any(y => y.Codes.Any(z => z.Number==code)))
                     .Select(x => new RegionStateCodeModel()
                     {
                         Number = x.States.FirstOrDefault()!.Codes.FirstOrDefault()!.Number,
@@ -34,6 +34,7 @@ namespace PosTech.Fase3.AreaCode.API.Controllers
                         State = x.States.FirstOrDefault()!.Name
                     }
                     ).FirstOrDefault();
+            return regionstatecode;
         }
     }
 }
