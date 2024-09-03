@@ -1,17 +1,14 @@
 using MassTransit;
 using MySql.Data.MySqlClient;
-using Polly;
-using Polly.Extensions.Http;
 using PosTech.Fase3.AddContact.API.Logging;
 using PosTech.Fase3.AddContact.API.PolicyHandler;
 using PosTech.Fase3.AddContact.Application.UseCases;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
+using PosTech.Fase3.AddContact.Domain.Requests;
 using PosTech.Fase3.AddContact.Infrastructure.Clients;
 using PosTech.Fase3.AddContact.Infrastructure.Publications;
-using PosTech.Fase3.AddContact.Infrastructure.Repositories;
 using Serilog;
 using System.Data;
-using System.Data.SqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -42,12 +39,17 @@ builder.Services.AddMassTransit(x =>
         {
             h.Username("guest");
             h.Password("guest");
-        });       
+        });
+        cfg.ExchangeType = "direct";
+        cfg.Message<NewContactRequest>(x => x.SetEntityName("PosTech.Fase3.AddContact.API")); // Define the exchange name
+
     });
+    
 });
 
+
+
 builder.Services.AddTransient<LoggingDelegatingHandler>();
-builder.Services.AddTransient<IProtocolRepository, ProtocolRepository>();
 builder.Services.AddTransient<ISaveContactPublisher, SaveContactPublisher>();
 builder.Services.AddTransient<ISaveContactUseCase, SaveContactUseCase>();
 

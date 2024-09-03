@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using MassTransit.Transports;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
 using PosTech.Fase3.AddContact.Domain.Requests;
 
@@ -14,7 +15,10 @@ namespace PosTech.Fase3.AddContact.Infrastructure.Publications
         }
         public async Task<bool> PublishAsync(NewContactRequest request)
         {
-            await _bus.Publish(request);
+            await _bus.Publish(request, ctx =>
+            {
+                ctx.SetRoutingKey("NewContactRequest");
+            });
             return true;
         }
     }

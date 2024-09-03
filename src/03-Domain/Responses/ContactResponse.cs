@@ -8,10 +8,10 @@ namespace PosTech.Fase3.AddContact.Domain.Responses
 {
     public class ContactResponse
     {
-        public ContactResponse(Guid protocolNumber)
+        public ContactResponse(string messege)
         {
-            ProtocolNumber = protocolNumber;
+            Message = messege;
         }
-        public Guid ProtocolNumber { get; set; }
+        public string Message { get; set; }
     }
 }
