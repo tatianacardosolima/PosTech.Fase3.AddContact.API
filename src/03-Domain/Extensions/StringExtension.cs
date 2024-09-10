@@ -32,6 +32,13 @@ namespace PosTech.Fase3.AddContact.Domain.Extensions
             if (string.IsNullOrWhiteSpace(numero))
                 return false;
 
+            if (numero.Contains("123456789") || numero.Contains("98765432")
+                    || numero.Contains("11223344"))
+                return false;
+
+            if (numero.All(c => c == numero[0]))
+                return false;
+
             try
             {
                 string pattern = @"^\d{9,}$";
