@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PosTech.Fase3.AddContact.Un
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PosTech.Fase3.AddContact.API", "01-API\AddContact.API\PosTech.Fase3.AddContact.API.csproj", "{5A1F7742-0382-4A8E-97A6-837929C6CB78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTech.Fase3.AreaCode.API", "01-API\AreaCode.API\PosTech.Fase3.AreaCode.API\PosTech.Fase3.AreaCode.API.csproj", "{1DE04F03-8753-4CEB-BD95-94A5033E66CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PosTech.Fase3.AreaCode.API", "01-API\AreaCode.API\PosTech.Fase3.AreaCode.API\PosTech.Fase3.AreaCode.API.csproj", "{1DE04F03-8753-4CEB-BD95-94A5033E66CC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06-BuildingBlocks", "06-BuildingBlocks", "{3FF33D03-FF68-41D5-8F61-097FA2637D36}"
 EndProject
