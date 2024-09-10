@@ -1,6 +1,6 @@
 ﻿using Bogus;
 using Microsoft.AspNetCore.Mvc.Testing;
-using PosTech.Fase3.AddContact.Domain.Requests;
+using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.Domain.Responses;
 using System.Text.Json;
 

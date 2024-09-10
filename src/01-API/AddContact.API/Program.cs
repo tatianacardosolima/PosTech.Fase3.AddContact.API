@@ -1,10 +1,10 @@
 using MassTransit;
 using MySql.Data.MySqlClient;
+using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.API.Logging;
 using PosTech.Fase3.AddContact.API.PolicyHandler;
 using PosTech.Fase3.AddContact.Application.UseCases;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
-using PosTech.Fase3.AddContact.Domain.Requests;
 using PosTech.Fase3.AddContact.Infrastructure.Clients;
 using PosTech.Fase3.AddContact.Infrastructure.Publications;
 using Serilog;

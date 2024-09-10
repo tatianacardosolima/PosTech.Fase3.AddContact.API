@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using PosTech.Fase3.AddContact.Domain.Requests;
-using static PosTech.Fase3.AddContact.Domain.Utils.ErrorMessageHelper;
+using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.Domain.Extensions;
+using static PosTech.Fase3.AddContact.Domain.Utils.ErrorMessageHelper;
 
 namespace PosTech.Fase3.AddContact.Application.Validators
 {

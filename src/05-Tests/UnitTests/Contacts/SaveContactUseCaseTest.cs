@@ -1,12 +1,11 @@
 ﻿using Bogus;
 using FluentAssertions;
 using Moq;
-using Org.BouncyCastle.Asn1.Ocsp;
+using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.Application.UseCases;
 using PosTech.Fase3.AddContact.Domain.DTOs;
 using PosTech.Fase3.AddContact.Domain.Exceptions;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
-using PosTech.Fase3.AddContact.Domain.Requests;
 using PosTech.Fase3.AddContact.Domain.Responses;
 using static PosTech.Fase3.AddContact.Domain.Utils.ErrorMessageHelper;
 

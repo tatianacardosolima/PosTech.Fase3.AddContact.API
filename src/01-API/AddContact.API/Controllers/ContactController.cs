@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
-using PosTech.Fase3.AddContact.Domain.Requests;
 
 namespace PosTech.Fase3.AddContact.API.Controllers
 {

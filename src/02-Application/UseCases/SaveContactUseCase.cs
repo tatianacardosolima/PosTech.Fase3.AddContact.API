@@ -1,7 +1,7 @@
-﻿using PosTech.Fase3.AddContact.Application.Validators;
+﻿using Postech.GroupEight.TechChallenge.ContactManagement.Events;
+using PosTech.Fase3.AddContact.Application.Validators;
 using PosTech.Fase3.AddContact.Domain.Exceptions;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
-using PosTech.Fase3.AddContact.Domain.Requests;
 using PosTech.Fase3.AddContact.Domain.Responses;
 
 namespace PosTech.Fase3.AddContact.Application.UseCases

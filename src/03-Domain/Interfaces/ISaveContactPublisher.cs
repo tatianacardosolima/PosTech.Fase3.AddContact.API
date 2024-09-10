@@ -1,9 +1,4 @@
-﻿using PosTech.Fase3.AddContact.Domain.Requests;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 
 namespace PosTech.Fase3.AddContact.Domain.Interfaces
 {

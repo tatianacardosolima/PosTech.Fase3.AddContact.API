@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PosTech.Fase3.AddContact.Domain.Requests
+namespace Postech.GroupEight.TechChallenge.ContactManagement.Events
 {
     public class NewContactRequest
     {
