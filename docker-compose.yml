@@ -4,7 +4,7 @@ services:
   contact-api:
     build:
       context: .
-      dockerfile: src/01-API/AddContact.API/Dockerfile
+      dockerfile: src/01-API/PosTech.Fase3.AddContact.API/Dockerfile
     container_name: addcontact_app
     restart: always
     ports:
@@ -17,7 +17,7 @@ services:
   area-code-api:
     build:
       context: .
-      dockerfile: src/01-API/AreaCode.API/PosTech.Fase3.AreaCode.API/Dockerfile
+      dockerfile: src/01-API/PosTech.Fase3.AreaCode.API/Dockerfile
     container_name: addareacode_app
     restart: always
     ports:
