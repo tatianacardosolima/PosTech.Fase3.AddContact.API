@@ -24,6 +24,8 @@ namespace PosTech.Fase3.AddContact.IntegrationTests.Controller
             var content = ContentHelper.GetStringContent(GetRequest());
             var response = await _client.PostAsync("/contacts", content);
 
+            var strresult = response.Content.ReadAsStringAsync().Result;
+
             var result = JsonSerializer.Deserialize<DefaultOutput<ContactResponse>>(response.Content.ReadAsStringAsync().Result);
             Assert.NotNull(result);
             Assert.True(result.Success);

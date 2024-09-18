@@ -1,0 +1,27 @@
+services:
+  # .API CONTACT
+
+  contact-api:
+    build:
+      context: .
+      dockerfile: src/01-API/AddContact.API/Dockerfile
+    container_name: addcontact_app
+    restart: always
+    ports:
+      - "5005:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"      
+   
+    
+  # Area Code
+  area-code-api:
+    build:
+      context: .
+      dockerfile: src/01-API/AreaCode.API/PosTech.Fase3.AreaCode.API/Dockerfile
+    container_name: addareacode_app
+    restart: always
+    ports:
+      - "5006:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"          
+    

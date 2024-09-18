@@ -1,12 +1,14 @@
 using MassTransit;
 using MySql.Data.MySqlClient;
 using Postech.GroupEight.TechChallenge.ContactManagement.Events;
+using PosTech.Fase3.AddContact.API.Filters;
 using PosTech.Fase3.AddContact.API.Logging;
 using PosTech.Fase3.AddContact.API.PolicyHandler;
 using PosTech.Fase3.AddContact.Application.UseCases;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
 using PosTech.Fase3.AddContact.Infrastructure.Clients;
 using PosTech.Fase3.AddContact.Infrastructure.Publications;
+using Prometheus;
 using Serilog;
 using System.Data;
 
@@ -18,6 +20,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddMvc(config =>
+{
+    config.Filters.Add(typeof(ExceptionFilter));
+});
+
 
 builder.Host.UseSerilog(SeriLogger.ConfigureLogger);
 
@@ -47,14 +55,13 @@ builder.Services.AddMassTransit(x =>
     
 });
 
-
-
 builder.Services.AddTransient<LoggingDelegatingHandler>();
 builder.Services.AddTransient<ISaveContactPublisher, SaveContactPublisher>();
 builder.Services.AddTransient<ISaveContactUseCase, SaveContactUseCase>();
 
 var app = builder.Build();
-
+app.UseMetricServer();
+app.UseHttpMetrics();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
