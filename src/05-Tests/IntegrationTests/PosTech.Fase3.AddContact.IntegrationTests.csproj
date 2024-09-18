@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\01-API\AddContact.API\PosTech.Fase3.AddContact.API.csproj" />
+    <ProjectReference Include="..\..\01-API\PosTech.Fase3.AddContact.API\PosTech.Fase3.AddContact.API.csproj" />
     <ProjectReference Include="..\..\04-Infrastructure\PosTech.Fase3.AddContact.Infrastructure.csproj" />
   </ItemGroup>
 

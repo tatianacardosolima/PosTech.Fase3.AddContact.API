@@ -8,11 +8,11 @@ USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG configuration=Release
 WORKDIR /src
-COPY ["src/01-API/AddContact.API/PosTech.Fase3.AddContact.API.csproj", "src/01-API/AddContact.API/"]
+COPY ["src/01-API/PosTech.Fase3.AddContact.API/PosTech.Fase3.AddContact.API.csproj", "src/01-API/PosTech.Fase3.AddContact.API/"]
 
-RUN dotnet restore "src/01-API/AddContact.API/PosTech.Fase3.AddContact.API.csproj"
+RUN dotnet restore "src/01-API/PosTech.Fase3.AddContact.API.csproj/PosTech.Fase3.AddContact.API.csproj"
 COPY . .
-WORKDIR "/src/src/PosTech.Fase3.AddContact.API.dll"
+WORKDIR "/src/src/PosTech.Fase3.AddContact.API"
 RUN dotnet build "PosTech.Fase3.AddContact.API.csproj" -c $configuration -o /app/build
 
 FROM build AS publish
