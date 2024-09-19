@@ -1067,3 +1067,31 @@ RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified end
    at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
    at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
    at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 85
+2024-09-18 21:24:22.618 -03:00 [INF] User profile is available. Using 'C:\Users\tatid\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-18 21:24:25.470 -03:00 [INF] Bus started: "rabbitmq://localhost/"
+2024-09-18 21:24:25.689 -03:00 [INF] Now listening on: https://localhost:7135
+2024-09-18 21:24:25.701 -03:00 [INF] Now listening on: http://localhost:5075
+2024-09-18 21:24:25.746 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-18 21:24:25.760 -03:00 [INF] Hosting environment: Development
+2024-09-18 21:24:25.769 -03:00 [INF] Content root path: C:\_DEV\GitHubPortifolio\PosTech.Fase3.AddContact.API\src\01-API\PosTech.Fase3.AddContact.API
+2024-09-18 21:24:27.208 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7135/swagger/index.html - null null
+2024-09-18 21:24:28.789 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7135/swagger/index.html - 200 null text/html;charset=utf-8 1597.7415ms
+2024-09-18 21:24:28.807 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7135/_vs/browserLink - null null
+2024-09-18 21:24:28.807 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7135/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-18 21:24:28.874 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7135/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 67.4641ms
+2024-09-18 21:24:29.051 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7135/_vs/browserLink - 200 null text/javascript; charset=UTF-8 244.1579ms
+2024-09-18 21:24:29.150 -03:00 [INF] Request starting HTTP/2 GET https://localhost:7135/swagger/v1/swagger.json - null null
+2024-09-18 21:24:29.398 -03:00 [INF] Request finished HTTP/2 GET https://localhost:7135/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 249.2163ms
+2024-09-18 21:24:54.561 -03:00 [INF] Request starting HTTP/2 POST https://localhost:7135/contacts - application/json 178
+2024-09-18 21:24:54.587 -03:00 [INF] Executing endpoint 'PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API)'
+2024-09-18 21:24:54.764 -03:00 [INF] Route matched with {action = "Post", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Post(Postech.GroupEight.TechChallenge.ContactManagement.Events.NewContactRequest) on controller PosTech.Fase3.AddContact.API.Controllers.ContactController (PosTech.Fase3.AddContact.API).
+2024-09-18 21:24:55.094 -03:00 [INF] Start processing HTTP request GET http://localhost:5006/areacodes/11
+2024-09-18 21:24:55.105 -03:00 [INF] Sending request to "http://localhost:5006/areacodes/11"
+2024-09-18 21:24:55.131 -03:00 [INF] Sending HTTP request GET http://localhost:5006/areacodes/11
+2024-09-18 21:24:55.614 -03:00 [INF] Received HTTP response headers after 466.0564ms - 200
+2024-09-18 21:24:55.639 -03:00 [INF] Received a success response from "http://localhost:5006/areacodes/11"
+2024-09-18 21:24:55.658 -03:00 [INF] End processing HTTP request after 570.0177ms - 200
+2024-09-18 21:24:56.243 -03:00 [INF] Executing OkObjectResult, writing value of type 'PosTech.Fase3.AddContact.Domain.Responses.DefaultOutput`1[[PosTech.Fase3.AddContact.Domain.Responses.ContactResponse, PosTech.Fase3.AddContact.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-18 21:24:56.280 -03:00 [INF] Executed action PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API) in 1496.8032ms
+2024-09-18 21:24:56.292 -03:00 [INF] Executed endpoint 'PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API)'
+2024-09-18 21:24:56.303 -03:00 [INF] Request finished HTTP/2 POST https://localhost:7135/contacts - 200 null application/json; charset=utf-8 1742.0461ms

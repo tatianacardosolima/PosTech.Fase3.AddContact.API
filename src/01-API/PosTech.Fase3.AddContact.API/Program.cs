@@ -21,10 +21,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMvc(config =>
-{
-    config.Filters.Add(typeof(ExceptionFilter));
-});
+//builder.Services.AddMvc(config =>
+//{
+//    config.Filters.Add(typeof(ExceptionFilter));
+//});
 
 
 builder.Host.UseSerilog(SeriLogger.ConfigureLogger);
@@ -43,13 +43,13 @@ builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
     {
-        cfg.Host("localhost", "/", h =>
+        cfg.Host("rabbitmq", "/", h =>
         {
             h.Username("guest");
             h.Password("guest");
         });
         cfg.ExchangeType = "direct";
-        cfg.Message<NewContactRequest>(x => x.SetEntityName("PosTech.Fase3.AddContact.API")); // Define the exchange name
+        cfg.Message<NewContactRequest>(x => x.SetEntityName("contact.management")); // Define the exchange name
 
     });
     
