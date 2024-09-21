@@ -1,11 +1,6 @@
 ﻿using PosTech.Fase3.AddContact.Domain.DTOs;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace PosTech.Fase3.AddContact.Infrastructure.Clients
 {
@@ -20,9 +15,12 @@ namespace PosTech.Fase3.AddContact.Infrastructure.Clients
         public async Task<RegionDto?> GetRegionByCodeAsync(int code)
         {
             var response = await _client.GetAsync($"areacodes/{code}");
-            var json = await response.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<RegionDto>(json);
-
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
+            var json = await response.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<RegionDto>(json, options);                        
         }
     }
 }
