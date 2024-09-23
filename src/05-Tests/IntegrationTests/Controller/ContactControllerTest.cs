@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.Domain.Responses;
 using System.Text.Json;
+using PosTech.Fase3.AddContact.IntegrationTests.Base;
 
 namespace PosTech.Fase3.AddContact.IntegrationTests.Controller
 {
-    public class ContactControllerTest: IClassFixture<WebApplicationFactory<Program>>
+    public class ContactControllerTest : IClassFixture<MyCustomWebApplicationFactory>
     {
         private readonly HttpClient _client;
 
