@@ -35,8 +35,6 @@ builder.Services.AddHttpClient<ICodeAreaClient, CodeAreaClient>(c =>
                 .AddPolicyHandler(PolicyHandler.GetCircuitBreakerPolicy())
                 .AddPolicyHandler(PolicyHandler.GetRetryPolicy());
 
-var connectionString = builder.Configuration.GetValue<string>("ConnectionStrings:Mysql");
-builder.Services.AddScoped<IDbConnection, MySqlConnection>((connection) => new MySqlConnection(connectionString));
 
 // Configure MassTransit with RabbitMQ
 builder.Services.AddMassTransit(x =>
@@ -45,11 +43,11 @@ builder.Services.AddMassTransit(x =>
     {
         cfg.Host("rabbitmq", "/", h =>
         {
-            h.Username("guest");
-            h.Password("guest");
+            h.Username(configuration["rabbitmq:user"]!);
+            h.Password(configuration["rabbitmq:password"]!);
         });
         cfg.ExchangeType = "direct";
-        cfg.Message<NewContactRequest>(x => x.SetEntityName("contact.management")); // Define the exchange name
+        cfg.Message<CreateContactEvent>(x => x.SetEntityName(configuration["rabbitmq:entityname"]!)); // Define the exchange name
 
     });
     
@@ -63,11 +61,11 @@ var app = builder.Build();
 app.UseMetricServer();
 app.UseHttpMetrics();
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 

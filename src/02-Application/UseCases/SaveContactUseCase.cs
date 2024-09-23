@@ -16,7 +16,7 @@ namespace PosTech.Fase3.AddContact.Application.UseCases
             _publisher = publisher;
             _client = client;         
         }
-        public async Task<DefaultOutput<ContactResponse>> SaveNewContactAsync(NewContactRequest request)
+        public async Task<DefaultOutput<ContactResponse>> SaveNewContactAsync(CreateContactEvent request)
         {
 
             var validator = new ContactValidator();

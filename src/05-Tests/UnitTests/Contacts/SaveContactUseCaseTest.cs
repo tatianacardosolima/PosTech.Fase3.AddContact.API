@@ -145,7 +145,7 @@ namespace PosTech.Fase3.AddContact.UnitTests.Contacts
             exception.Message.Should().Be("Área code não encontrada");
         }
 
-        private Mock<ICodeAreaClient> GetClient(NewContactRequest request, bool returnNull = false)
+        private Mock<ICodeAreaClient> GetClient(CreateContactEvent request, bool returnNull = false)
         {
             Mock<ICodeAreaClient> client = new();
             int areaCode = int.Parse(request.ContactPhoneNumberAreaCode);
@@ -167,13 +167,13 @@ namespace PosTech.Fase3.AddContact.UnitTests.Contacts
             return client;
         }
         
-        private Mock<ISaveContactPublisher>  GetMockPublisher(NewContactRequest request)
+        private Mock<ISaveContactPublisher>  GetMockPublisher(CreateContactEvent request)
         {
             Mock<ISaveContactPublisher> publisher = new();
             publisher.Setup(c => c.PublishAsync(request)).ReturnsAsync(true);
             return publisher;
         }
-        private NewContactRequest GetRequest()
+        private CreateContactEvent GetRequest()
         {
             return new()
             {

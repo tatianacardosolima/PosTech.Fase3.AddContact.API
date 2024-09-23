@@ -12,7 +12,7 @@ namespace PosTech.Fase3.AddContact.Infrastructure.Publications
         {
             _bus = bus;
         }
-        public async Task<bool> PublishAsync(NewContactRequest request)
+        public async Task<bool> PublishAsync(CreateContactEvent request)
         {
             await _bus.Publish(request, ctx =>
             {

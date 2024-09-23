@@ -4,6 +4,6 @@ namespace PosTech.Fase3.AddContact.Domain.Interfaces
 {
     public interface ISaveContactPublisher
     {
-        public Task<bool> PublishAsync(NewContactRequest request);
+        public Task<bool> PublishAsync(CreateContactEvent request);
     }
 }

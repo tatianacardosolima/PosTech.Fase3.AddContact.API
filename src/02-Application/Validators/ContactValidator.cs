@@ -5,7 +5,7 @@ using static PosTech.Fase3.AddContact.Domain.Utils.ErrorMessageHelper;
 
 namespace PosTech.Fase3.AddContact.Application.Validators
 {
-    public class ContactValidator : AbstractValidator<NewContactRequest>
+    public class ContactValidator : AbstractValidator<CreateContactEvent>
     {
         public ContactValidator()
         {

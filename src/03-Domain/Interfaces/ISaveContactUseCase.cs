@@ -5,6 +5,6 @@ namespace PosTech.Fase3.AddContact.Domain.Interfaces
 {
     public interface ISaveContactUseCase
     {
-        Task<DefaultOutput<ContactResponse>> SaveNewContactAsync(NewContactRequest request);
+        Task<DefaultOutput<ContactResponse>> SaveNewContactAsync(CreateContactEvent request);
     }
 }

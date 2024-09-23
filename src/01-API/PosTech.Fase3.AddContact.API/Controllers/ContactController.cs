@@ -18,7 +18,7 @@ namespace PosTech.Fase3.AddContact.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] NewContactRequest request)
+        public async Task<ActionResult> Post([FromBody] CreateContactEvent request)
         {
             return Ok(await _useCase.SaveNewContactAsync(request));
         }

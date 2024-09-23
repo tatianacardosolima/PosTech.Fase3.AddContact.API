@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Postech.GroupEight.TechChallenge.ContactManagement.Events
 {
-    public class NewContactRequest
+    public class CreateContactEvent
     {
         /// <summary>
         /// The first name of the contact.
@@ -43,5 +43,6 @@ namespace Postech.GroupEight.TechChallenge.ContactManagement.Events
         [Required(ErrorMessage = "Contact area code phone number is required.")]
         [RegularExpression("^\\d{2}$", ErrorMessage = "The area code must contain 2 numeric characters.")]
         public string ContactPhoneNumberAreaCode { get; set; } = string.Empty;
+        
     }
 }

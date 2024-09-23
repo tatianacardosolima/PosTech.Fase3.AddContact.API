@@ -32,7 +32,7 @@ namespace PosTech.Fase3.AddContact.IntegrationTests.Controller
 
         }
 
-        private NewContactRequest GetRequest()
+        private CreateContactEvent GetRequest()
         {
             return new()
             {
