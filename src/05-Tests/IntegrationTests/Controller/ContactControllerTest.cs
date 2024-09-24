@@ -13,7 +13,7 @@ namespace PosTech.Fase3.AddContact.IntegrationTests.Controller
 
 
         Faker _faker = new Faker();
-        public ContactControllerTest(WebApplicationFactory<Program> factory)
+        public ContactControllerTest(MyCustomWebApplicationFactory factory)
         {
             _client = factory.CreateClient();
         }

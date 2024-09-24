@@ -16,7 +16,7 @@ namespace PosTech.Fase3.AddContact.Infrastructure.Publications
         {
             await _bus.Publish(request, ctx =>
             {
-                ctx.SetRoutingKey("NewContactRequest");
+                ctx.SetRoutingKey("CreateContactEvent");
             });
             return true;
         }

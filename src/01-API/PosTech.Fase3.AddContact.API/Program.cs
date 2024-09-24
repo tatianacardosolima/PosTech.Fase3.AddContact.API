@@ -37,6 +37,22 @@ builder.Services.AddHttpClient<ICodeAreaClient, CodeAreaClient>(c =>
 
 
 // Configure MassTransit with RabbitMQ
+//builder.Services.AddMassTransit(x =>
+//{
+//    x.UsingRabbitMq((context, cfg) =>
+//    {
+//        cfg.Host(configuration["rabbitmq:host"], "/", h =>
+//        {
+//            h.Username(configuration["rabbitmq:user"]!);
+//            h.Password(configuration["rabbitmq:password"]!);
+//        });
+//        cfg.ExchangeType = "direct";
+//        cfg.Message<CreateContactEvent>(x => x.SetEntityName(configuration["rabbitmq:entityname"]!)); // Define the exchange name
+
+//    });
+
+//});
+
 builder.Services.AddMassTransit(x =>
 {
     x.UsingRabbitMq((context, cfg) =>
@@ -46,11 +62,19 @@ builder.Services.AddMassTransit(x =>
             h.Username(configuration["rabbitmq:user"]!);
             h.Password(configuration["rabbitmq:password"]!);
         });
-        cfg.ExchangeType = "direct";
-        cfg.Message<CreateContactEvent>(x => x.SetEntityName(configuration["rabbitmq:entityname"]!)); // Define the exchange name
 
+        // Configurar a Exchange para o evento `CreateContactEvent`
+        cfg.ReceiveEndpoint("CreateContactEvent", e =>
+        {
+            e.ConfigureConsumeTopology = false; // Desabilita a topologia de consumo automática
+
+            e.Bind(configuration["rabbitmq:entityname"]!, s =>
+            {
+                s.RoutingKey = "CreateContactEvent"; // Defina a routing key conforme necessário
+                s.ExchangeType = "direct"; // Defina o tipo de exchange como direct
+            });
+        });
     });
-    
 });
 
 builder.Services.AddTransient<LoggingDelegatingHandler>();
