@@ -37,21 +37,6 @@ builder.Services.AddHttpClient<ICodeAreaClient, CodeAreaClient>(c =>
 
 
 // Configure MassTransit with RabbitMQ
-//builder.Services.AddMassTransit(x =>
-//{
-//    x.UsingRabbitMq((context, cfg) =>
-//    {
-//        cfg.Host(configuration["rabbitmq:host"], "/", h =>
-//        {
-//            h.Username(configuration["rabbitmq:user"]!);
-//            h.Password(configuration["rabbitmq:password"]!);
-//        });
-//        cfg.ExchangeType = "direct";
-//        cfg.Message<CreateContactEvent>(x => x.SetEntityName(configuration["rabbitmq:entityname"]!)); // Define the exchange name
-
-//    });
-
-//});
 
 builder.Services.AddMassTransit(x =>
 {
