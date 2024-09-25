@@ -19,7 +19,7 @@ namespace PosTech.Fase3.AddContact.IntegrationTests.Base
             {
                 // Remove o serviço real do contêiner
                 var descriptor = services.SingleOrDefault(
-                    d => d.ServiceType == typeof(ICodeAreaClient));
+                    d => d.ServiceType == typeof(IHttpClientFactory));
 
                 if (descriptor != null)
                 {

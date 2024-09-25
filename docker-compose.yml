@@ -1,17 +1,17 @@
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    ports:
-      - "5672:5672"   # Porta padrão do RabbitMQ
-      - "15672:15672" # Porta do painel de administração do RabbitMQ
-    environment:
-      RABBITMQ_DEFAULT_USER: guest  # Usuário padrão
-      RABBITMQ_DEFAULT_PASS: guest  # Senha padrão
-    volumes:
-      - rabbitmq_data:/var/lib/rabbitmq  # Persistência de dados
-    networks:
-      - monitoring           
+  # rabbitmq:
+  #   image: rabbitmq:3-management
+  #   container_name: rabbitmq
+  #   ports:
+  #     - "5672:5672"   # Porta padrão do RabbitMQ
+  #     - "15672:15672" # Porta do painel de administração do RabbitMQ
+  #   environment:
+  #     RABBITMQ_DEFAULT_USER: guest  # Usuário padrão
+  #     RABBITMQ_DEFAULT_PASS: guest  # Senha padrão
+  #   volumes:
+  #     - rabbitmq_data:/var/lib/rabbitmq  # Persistência de dados
+  #   networks:
+  #     - monitoring           
       
   # .API CONTACT
   contact-api:
