@@ -10,6 +10,10 @@ namespace PosTech.Fase3.AddContact.IntegrationTests.Base
 {
     public class MockCodeAreaClient : ICodeAreaClient
     {
+        public MockCodeAreaClient()
+        {
+            
+        }
         public Task<RegionDto?> GetRegionByCodeAsync(int code)
         {
             return Task.FromResult(new RegionDto());
