@@ -10,6 +10,7 @@
             Name = name;
             States = states;
         }
+         
     }
 
     public class StateModel

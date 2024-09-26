@@ -1335,3 +1335,70 @@ System.Text.Json.JsonException: The input does not contain any JSON tokens. Expe
 2024-09-25 21:49:32.439 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_vs/browserLink - 200 null text/javascript; charset=UTF-8 528.7522ms
 2024-09-25 21:49:33.930 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - null null
 2024-09-25 21:49:34.388 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 458.9197ms
+2024-09-25 22:16:54.717 -03:00 [INF] Now listening on: https://localhost:5079
+2024-09-25 22:16:54.732 -03:00 [INF] Bus started: "rabbitmq://localhost/"
+2024-09-25 22:16:54.981 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-25 22:16:54.996 -03:00 [INF] Hosting environment: Debug
+2024-09-25 22:16:55.023 -03:00 [INF] Content root path: C:\_DEV\GitHubPortifolio\PosTech.Fase3.AddContact.API\src\01-API\PosTech.Fase3.AddContact.API
+2024-09-25 22:16:56.186 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/index.html - null null
+2024-09-25 22:16:57.668 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-25 22:16:57.668 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/_vs/browserLink - null null
+2024-09-25 22:16:57.706 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/index.html - 200 null text/html;charset=utf-8 1552.4075ms
+2024-09-25 22:16:57.744 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 75.8389ms
+2024-09-25 22:16:58.146 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_vs/browserLink - 200 null text/javascript; charset=UTF-8 478.6858ms
+2024-09-25 22:16:58.323 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - null null
+2024-09-25 22:16:58.928 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 604.6137ms
+2024-09-25 22:19:09.893 -03:00 [INF] Now listening on: https://localhost:5079
+2024-09-25 22:19:09.845 -03:00 [INF] Bus started: "rabbitmq://localhost/"
+2024-09-25 22:19:10.810 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-25 22:19:10.876 -03:00 [INF] Hosting environment: Debug
+2024-09-25 22:19:10.902 -03:00 [INF] Content root path: C:\_DEV\GitHubPortifolio\PosTech.Fase3.AddContact.API\src\01-API\PosTech.Fase3.AddContact.API
+2024-09-25 22:19:11.192 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/index.html - null null
+2024-09-25 22:19:12.907 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/index.html - 200 null text/html;charset=utf-8 1755.1674ms
+2024-09-25 22:19:13.036 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-25 22:19:13.036 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/_vs/browserLink - null null
+2024-09-25 22:19:13.189 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 152.1503ms
+2024-09-25 22:19:13.503 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_vs/browserLink - 200 null text/javascript; charset=UTF-8 466.6628ms
+2024-09-25 22:19:13.758 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - null null
+2024-09-25 22:19:14.894 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1135.0602ms
+2024-09-25 22:23:30.679 -03:00 [INF] Request starting HTTP/2 POST https://localhost:5079/contacts - application/json 173
+2024-09-25 22:23:30.705 -03:00 [INF] Executing endpoint 'PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API)'
+2024-09-25 22:23:30.765 -03:00 [INF] Route matched with {action = "Post", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Post(Postech.GroupEight.TechChallenge.ContactManagement.Events.CreateContactEvent) on controller PosTech.Fase3.AddContact.API.Controllers.ContactController (PosTech.Fase3.AddContact.API).
+2024-09-25 22:23:35.195 -03:00 [INF] Start processing HTTP request GET https://localhost:5006/areacodes/11
+2024-09-25 22:23:35.204 -03:00 [INF] Sending request to "https://localhost:5006/areacodes/11"
+2024-09-25 22:23:35.229 -03:00 [INF] Sending HTTP request GET https://localhost:5006/areacodes/11
+2024-09-25 22:23:35.319 -03:00 [ERR] Retry 00:00:02 of AsyncRetryPolicy`1-8c7def33 at , due to: Polly.DelegateResult`1[System.Net.Http.HttpResponseMessage].
+2024-09-25 22:23:37.333 -03:00 [INF] Sending HTTP request GET https://localhost:5006/areacodes/11
+2024-09-25 22:23:37.354 -03:00 [ERR] Retry 00:00:04 of AsyncRetryPolicy`1-8c7def33 at , due to: Polly.DelegateResult`1[System.Net.Http.HttpResponseMessage].
+2024-09-25 22:23:41.371 -03:00 [INF] Sending HTTP request GET https://localhost:5006/areacodes/11
+2024-09-25 22:23:41.396 -03:00 [ERR] Retry 00:00:08 of AsyncRetryPolicy`1-8c7def33 at , due to: Polly.DelegateResult`1[System.Net.Http.HttpResponseMessage].
+2024-09-25 22:23:49.413 -03:00 [INF] Sending HTTP request GET https://localhost:5006/areacodes/11
+2024-09-25 22:23:49.439 -03:00 [ERR] Retry 00:00:16 of AsyncRetryPolicy`1-8c7def33 at , due to: Polly.DelegateResult`1[System.Net.Http.HttpResponseMessage].
+2024-09-25 22:24:05.452 -03:00 [INF] Sending HTTP request GET https://localhost:5006/areacodes/11
+2024-09-25 22:24:05.471 -03:00 [ERR] Retry 00:00:32 of AsyncRetryPolicy`1-8c7def33 at , due to: Polly.DelegateResult`1[System.Net.Http.HttpResponseMessage].
+2024-09-25 22:24:24.752 -03:00 [INF] Now listening on: https://localhost:5079
+2024-09-25 22:24:24.752 -03:00 [INF] Bus started: "rabbitmq://localhost/"
+2024-09-25 22:24:25.128 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-25 22:24:25.149 -03:00 [INF] Hosting environment: Debug
+2024-09-25 22:24:25.170 -03:00 [INF] Content root path: C:\_DEV\GitHubPortifolio\PosTech.Fase3.AddContact.API\src\01-API\PosTech.Fase3.AddContact.API
+2024-09-25 22:24:26.300 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/index.html - null null
+2024-09-25 22:24:27.588 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/index.html - 200 null text/html;charset=utf-8 1304.4962ms
+2024-09-25 22:24:27.615 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-25 22:24:27.629 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/_vs/browserLink - null null
+2024-09-25 22:24:27.685 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 69.768ms
+2024-09-25 22:24:28.035 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/_vs/browserLink - 200 null text/javascript; charset=UTF-8 419.2876ms
+2024-09-25 22:24:28.239 -03:00 [INF] Request starting HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - null null
+2024-09-25 22:24:28.956 -03:00 [INF] Request finished HTTP/2 GET https://localhost:5079/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 716.9098ms
+2024-09-25 22:25:00.906 -03:00 [INF] Request starting HTTP/2 POST https://localhost:5079/contacts - application/json 173
+2024-09-25 22:25:00.943 -03:00 [INF] Executing endpoint 'PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API)'
+2024-09-25 22:25:01.021 -03:00 [INF] Route matched with {action = "Post", controller = "Contact"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult] Post(Postech.GroupEight.TechChallenge.ContactManagement.Events.CreateContactEvent) on controller PosTech.Fase3.AddContact.API.Controllers.ContactController (PosTech.Fase3.AddContact.API).
+2024-09-25 22:25:06.865 -03:00 [INF] Start processing HTTP request GET http://localhost:5006/areacodes/11
+2024-09-25 22:25:06.874 -03:00 [INF] Sending request to "http://localhost:5006/areacodes/11"
+2024-09-25 22:25:06.906 -03:00 [INF] Sending HTTP request GET http://localhost:5006/areacodes/11
+2024-09-25 22:25:10.161 -03:00 [INF] Received HTTP response headers after 3245.9273ms - 200
+2024-09-25 22:25:10.175 -03:00 [INF] Received a success response from "http://localhost:5006/areacodes/11"
+2024-09-25 22:25:10.182 -03:00 [INF] End processing HTTP request after 3324.0774ms - 200
+2024-09-25 22:25:24.089 -03:00 [INF] Executing OkObjectResult, writing value of type 'PosTech.Fase3.AddContact.Domain.Responses.DefaultOutput`1[[PosTech.Fase3.AddContact.Domain.Responses.ContactResponse, PosTech.Fase3.AddContact.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-09-25 22:25:24.115 -03:00 [INF] Executed action PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API) in 23075.1273ms
+2024-09-25 22:25:24.123 -03:00 [INF] Executed endpoint 'PosTech.Fase3.AddContact.API.Controllers.ContactController.Post (PosTech.Fase3.AddContact.API)'
+2024-09-25 22:25:24.129 -03:00 [INF] Request finished HTTP/2 POST https://localhost:5079/contacts - 200 null application/json; charset=utf-8 23223.4533ms

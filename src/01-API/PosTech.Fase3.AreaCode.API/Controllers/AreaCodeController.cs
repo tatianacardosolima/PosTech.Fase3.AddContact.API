@@ -26,15 +26,15 @@ namespace PosTech.Fase3.AreaCode.API.Controllers
         public ActionResult Get([FromRoute] int code)
         {
             var regions = RegionHelper.Get();
-            var regionstatecode = regions.Where(x => x.States.Any(y => y.Codes.Any(z => z.Number==code)))
-                    .Select(x => new RegionStateCodeModel()
-                    {
-                        Number = x.States.FirstOrDefault()!.Codes.FirstOrDefault()!.Number,
-                        Region = x.Name,
-                        State = x.States.FirstOrDefault()!.Name
-                    }
-                    ).FirstOrDefault();
-            return Ok(regionstatecode);
+
+            var result = RegionHelper.Get()
+            .SelectMany(region => region.States) 
+            .SelectMany(state => state.Codes, (state, code) => new { StateName = state.Name, Code = code })
+            .FirstOrDefault(x => x.Code.Number == code);
+
+            if (result == null) return NotFound();
+
+            return Ok(new { Number = result.Code.Number, State = result.StateName });
         }
     }
 }
