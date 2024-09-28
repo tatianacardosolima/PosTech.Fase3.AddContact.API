@@ -13,19 +13,13 @@ using Serilog;
 using System.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseUrls("http://*:5011");
+builder.Configuration.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: false, reloadOnChange: true);
 var configuration = builder.Configuration;
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-//builder.Services.AddMvc(config =>
-//{
-//    config.Filters.Add(typeof(ExceptionFilter));
-//});
-
 
 builder.Host.UseSerilog(SeriLogger.ConfigureLogger);
 
@@ -34,9 +28,6 @@ builder.Services.AddHttpClient<ICodeAreaClient, CodeAreaClient>(c =>
                 .AddHttpMessageHandler<LoggingDelegatingHandler>()
                 .AddPolicyHandler(PolicyHandler.GetCircuitBreakerPolicy())
                 .AddPolicyHandler(PolicyHandler.GetRetryPolicy());
-
-
-// Configure MassTransit with RabbitMQ
 
 builder.Services.AddMassTransit(x =>
 {
@@ -48,15 +39,13 @@ builder.Services.AddMassTransit(x =>
             h.Password(configuration["rabbitmq:password"]!);
         });
 
-        // Configurar a Exchange para o evento `CreateContactEvent`
         cfg.ReceiveEndpoint("CreateContactEvent", e =>
         {
-            e.ConfigureConsumeTopology = false; // Desabilita a topologia de consumo automática
-
+            e.ConfigureConsumeTopology = false; 
             e.Bind(configuration["rabbitmq:entityname"]!, s =>
             {
-                s.RoutingKey = "CreateContactEvent"; // Defina a routing key conforme necessário
-                s.ExchangeType = "direct"; // Defina o tipo de exchange como direct
+                s.RoutingKey = "CreateContactEvent"; 
+                s.ExchangeType = "direct"; 
             });
         });
     });
@@ -69,20 +58,13 @@ builder.Services.AddTransient<ISaveContactUseCase, SaveContactUseCase>();
 var app = builder.Build();
 app.UseMetricServer();
 app.UseHttpMetrics();
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-//}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
+
 public partial class Program
 {
     protected Program() { }
