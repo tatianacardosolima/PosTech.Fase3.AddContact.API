@@ -25,8 +25,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development" 
     networks:
-      - monitoring      
-   
+      - techchallenge-postech-4nett-fasetres-worker-persistency_custom_network
     
   # Area Code
   area-code-api:
@@ -36,14 +35,17 @@ services:
     container_name: addareacode_app
     restart: always
     ports:
-      - "5006:8081"
+      - "59464:8081"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
+      rabbitmq_host: "rabbitmq"  # Nome do container RabbitMQ
+      rabbitmq_user: "5672"
     networks:
-      - monitoring           
+      - techchallenge-postech-4nett-fasetres-worker-persistency_custom_network
 
-volumes:
-  rabbitmq_data:
+# volumes:
+#   rabbitmq_data:
 
-networks:
-  monitoring:
+networks:  
+  techchallenge-postech-4nett-fasetres-worker-persistency_custom_network:
+    external: true
