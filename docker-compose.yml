@@ -13,7 +13,7 @@ services:
       ASPNETCORE_ENVIRONMENT: "Docker" 
     networks:
       - techchallenge-worker-persistency_custom_network      
-     
+
   # Area Code
   area-code-api:
     build:
