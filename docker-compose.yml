@@ -1,18 +1,5 @@
 services:
-  # rabbitmq:
-  #   image: rabbitmq:3-management
-  #   container_name: rabbitmq
-  #   ports:
-  #     - "5672:5672"   # Porta padrão do RabbitMQ
-  #     - "15672:15672" # Porta do painel de administração do RabbitMQ
-  #   environment:
-  #     RABBITMQ_DEFAULT_USER: guest  # Usuário padrão
-  #     RABBITMQ_DEFAULT_PASS: guest  # Senha padrão
-  #   volumes:
-  #     - rabbitmq_data:/var/lib/rabbitmq  # Persistência de dados
-  #   networks:
-  #     - monitoring           
-      
+               
   # .API CONTACT
   contact-api:
     build:
@@ -21,12 +8,12 @@ services:
     container_name: addcontact_app
     restart: always
     ports:
-      - "5005:8080"
+      - "5011:5011"
     environment:
-      ASPNETCORE_ENVIRONMENT: "Development" 
+      ASPNETCORE_ENVIRONMENT: "Docker" 
     networks:
-      - techchallenge-postech-4nett-fasetres-worker-persistency_custom_network
-    
+      - techchallenge-worker-persistency_custom_network      
+
   # Area Code
   area-code-api:
     build:
@@ -35,17 +22,12 @@ services:
     container_name: addareacode_app
     restart: always
     ports:
-      - "59464:8081"
+      - "5012:5012"
     environment:
-      ASPNETCORE_ENVIRONMENT: "Development"
-      rabbitmq_host: "rabbitmq"  # Nome do container RabbitMQ
-      rabbitmq_user: "5672"
+      ASPNETCORE_ENVIRONMENT: "Docker"
     networks:
-      - techchallenge-postech-4nett-fasetres-worker-persistency_custom_network
+      - techchallenge-worker-persistency_custom_network           
 
-# volumes:
-#   rabbitmq_data:
-
-networks:  
-  techchallenge-postech-4nett-fasetres-worker-persistency_custom_network:
+networks:
+  techchallenge-worker-persistency_custom_network:
     external: true
