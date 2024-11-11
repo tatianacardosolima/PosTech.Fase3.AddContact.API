@@ -28,7 +28,7 @@ spec:
             - name: RABBITMQ_DEFAULT_USER
               value: "admin"
             - name: RABBITMQ_DEFAULT_PASS
-              value: "password"
+              value: "Admin*123"
       volumes:
         - name: rabbitmq-storage
           persistentVolumeClaim:
