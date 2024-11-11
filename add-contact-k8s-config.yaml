@@ -1,0 +1,55 @@
+# Arquivo: add-contact-k8s-config.yaml 
+#   kubectl apply -f add-contact-k8s-config.yaml
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: area-code-api-pod
+  labels:
+    app: area-code-api
+spec:
+  containers:
+    - name: area-code-api-container
+      image: tatianacardoso/postechfase3addcontactapi-area-code-api:1
+      ports:
+        - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: area-code-api-service
+spec:
+  selector:
+    app: area-code-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8081
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: contact-api-pod
+  labels:
+    app: contact-api
+spec:
+  containers:
+    - name: contact-api-container
+      image: tatianacardoso/postechfase3addcontactapi-contact-api:1
+      ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: contact-api-service
+spec:
+  selector:
+    app: contact-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP
