@@ -11,7 +11,7 @@ metadata:
 spec:
   containers:
     - name: area-code-api-container
-      image: tatianacardoso/postechfase3addcontactapi-area-code-api:1
+      image: tatianacardoso/postechfase3addcontactapi-area-code-api:2
       ports:
         - containerPort: 8081
 ---
@@ -37,7 +37,7 @@ metadata:
 spec:
   containers:
     - name: contact-api-container
-      image: tatianacardoso/postechfase3addcontactapi-contact-api:1
+      image: tatianacardoso/postechfase3addcontactapi-contact-api:2
       ports:
         - containerPort: 8080
 ---
