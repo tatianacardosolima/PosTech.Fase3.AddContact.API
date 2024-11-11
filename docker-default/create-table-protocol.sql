@@ -1,7 +1,0 @@
-
-CREATE TABLE ProtocolEntity (
-    Id CHAR(36) NOT NULL PRIMARY KEY,
-    CreatedIn DATETIME NOT NULL ,
-    Status INT NOT NULL DEFAULT 0,
-    Message TEXT NULL
-);
