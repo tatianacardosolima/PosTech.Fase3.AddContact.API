@@ -17,10 +17,12 @@ spec:
     spec:
       containers:
         - name: rabbitmq
-          image: rabbitmq:3-management
+          image: rabbitmq:3-management          
           ports:
-            - containerPort: 5672   # Porta padrão para o RabbitMQ
-            - containerPort: 15672  # Porta para o Management UI
+            - name: amqp       # Nome para a porta AMQP (5672)
+              containerPort: 5672   # Porta padrão para o RabbitMQ              
+            - name: management # Nome para a porta de gerenciamento (15672)
+              containerPort: 15672  # Porta para o Management UI              
           volumeMounts:
             - mountPath: /var/lib/rabbitmq
               name: rabbitmq-storage

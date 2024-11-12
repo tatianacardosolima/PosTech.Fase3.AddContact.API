@@ -6,7 +6,7 @@
     }
   },
   "ApiSettings": {
-    "AreaCode": "http://addareacode_app:8084"
+    "AreaCode": "http://area-code-api-service:5012"
   },
   "rabbitmq": {
     "host": "service-rabbitmq",

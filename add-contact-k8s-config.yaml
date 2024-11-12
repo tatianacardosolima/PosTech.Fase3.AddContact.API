@@ -11,9 +11,12 @@ metadata:
 spec:
   containers:
     - name: area-code-api-container
-      image: tatianacardoso/postechfase3addcontactapi-area-code-api:2
+      image: tatianacardoso/postechfase3addcontactapi-area-code-api:3
       ports:
-        - containerPort: 8081
+        - containerPort: 5012
+      env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Docker"
 ---
 apiVersion: v1
 kind: Service
@@ -24,9 +27,9 @@ spec:
     app: area-code-api
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8081
-  type: NodePort
+      port: 5012
+      targetPort: 5012
+  type: ClusterIP
 ---
 apiVersion: v1
 kind: Pod
@@ -37,9 +40,12 @@ metadata:
 spec:
   containers:
     - name: contact-api-container
-      image: tatianacardoso/postechfase3addcontactapi-contact-api:2
+      image: tatianacardoso/postechfase3addcontactapi-contact-api:3
       ports:
-        - containerPort: 8080
+        - containerPort: 5011
+      env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Docker"
 ---
 apiVersion: v1
 kind: Service
@@ -51,5 +57,6 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8080
+      targetPort: 5011
+      nodePort: 30400
   type: NodePort
