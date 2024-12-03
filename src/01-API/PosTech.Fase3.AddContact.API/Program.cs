@@ -1,8 +1,10 @@
 using MassTransit;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using MySql.Data.MySqlClient;
 using Postech.GroupEight.TechChallenge.ContactManagement.Events;
 using PosTech.Fase3.AddContact.API.Filters;
 using PosTech.Fase3.AddContact.API.Logging;
+using PosTech.Fase3.AddContact.API.Setup;
 using PosTech.Fase3.AddContact.API.PolicyHandler;
 using PosTech.Fase3.AddContact.Application.UseCases;
 using PosTech.Fase3.AddContact.Domain.Interfaces;
@@ -55,7 +57,16 @@ builder.Services.AddTransient<LoggingDelegatingHandler>();
 builder.Services.AddTransient<ISaveContactPublisher, SaveContactPublisher>();
 builder.Services.AddTransient<ISaveContactUseCase, SaveContactUseCase>();
 
+builder.Services.AddHealthChecks().AddRabbitMQHealthCheck();
+
 var app = builder.Build();
+
+app.MapHealthChecks("/health"); 
+app.MapHealthChecks("/ready", new HealthCheckOptions
+{
+    Predicate = check => check.Tags.Contains("ready")
+});
+
 app.UseMetricServer();
 app.UseHttpMetrics();
 app.UseSwagger();
